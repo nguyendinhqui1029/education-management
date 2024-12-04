@@ -130,7 +130,7 @@ input[type="search"]:focus {
 }
 .studentMenu .optionMenu button {
     cursor: pointer;
-    padding: 15px 30px;
+    padding: 9px 30px;
     border: 2px solid #4D44B5;
     border-radius: 40px  ;
     font-size: 18px;
@@ -147,4 +147,9 @@ input[type="search"]:focus {
 .studentList {
     width: 90%;
     height: 100%;
+}
+
+.tag-link {
+    color: #4e44b5;
+    text-decoration: none;
 }
