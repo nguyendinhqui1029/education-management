@@ -4,9 +4,37 @@
         <title>Teacher</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="css/style.css" rel="stylesheet">
+        <link href="../css/teachers.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     </head>
     <body>
-        Teacher
+        <div class="grid-teacher" id="teacherContainer">
+            
+        </div>
+        <script>
+            const dataMock = [
+                {id: 1232, name: 'Test 1', department: 'History', phone: '1232323', email: 's@gmail.com'},
+                {id: 1233, name: 'Test 2', department: 'Math', phone: '1232323', email: 's@gmail.com'},
+                {id: 1234, name: 'Test 5', department: 'Art', phone: '1232323', email: 's@gmail.com'},
+                {id: 1235, name: 'Test 6', department: 'History', phone: '1232323', email: 's@gmail.com'},
+                {id: 1236, name: 'Test 7', department: 'Math', phone: '1232323', email: 's@gmail.com'},
+                {id: 1237, name: 'Test 8', department: 'Art', phone: '1232323', email: 's@gmail.com'}
+            ];
+            let innerHtmlData = '';
+            dataMock.forEach(item=>{
+                innerHtmlData+= `<div class="teacher-card">
+                <i class="fa-solid fa-ellipsis three-dot"></i>
+                <div class="avatar"></div>
+                <h3 class="name">${item.name}</h3>
+                <span class="department">${item.department}</span>
+                <div class="column-contact">
+                    <i class="phone-icon fa-solid fa-phone icon"></i>
+                    <i class="email-icon fa-solid fa-envelope icon"></i>
+                </div>
+            </div>`;
+            });
+            const tableElement = document.getElementById('teacherContainer');
+            tableElement.innerHTML = innerHtmlData;
+        </script>
     </body>
 </html>
