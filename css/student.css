@@ -1,0 +1,108 @@
+body {
+    font-family: "Poppins", sans-serif;
+}
+.student-table {
+    width: 100%;
+    border-radius: 10px;
+    background: #ffffff;
+    
+    border-collapse: collapse;
+}
+
+.table-header {
+    border-bottom: 1px solid #ccc;
+    height: 20px;
+}
+table td {
+    padding: 14px;
+}
+
+.active-checkbox {
+    border-left: 3px solid #4e44b5;
+}
+
+.action-content {
+    text-align: right;
+    width: 25px;
+    cursor: pointer;
+}
+
+.column-name {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+}
+
+.column-name .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #c1bbeb;
+}
+
+.column-id {
+    color: #4e44b5;
+    font-weight: bold;
+}
+
+.column-date {
+    color: #aca5b9;
+}
+
+.column-parent-name {
+    color: #3e457b;
+}
+
+.column-city {
+    color: #303972;
+}
+
+.column-contact {
+    display: flex;
+    padding: 0;
+    gap: 8px;
+    align-items: center;
+    color: #4e44b5;
+}
+
+.column-contact .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #edecf8;
+    cursor: pointer;
+}
+
+.grade-a {
+    background: #fb7d5b;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 20px;
+    width: 50px;
+    text-align: center;
+}
+
+.grade-b {
+    background: #fcc43e;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 20px;
+    width: 50px;
+    text-align: center;
+}
+
+.grade-c {
+    background: #4e44b5;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 20px;
+    width: 50px;
+    text-align: center;
+}
+
+.checkbox-item {
+    cursor: pointer;
+}
