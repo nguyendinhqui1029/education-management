@@ -7,24 +7,39 @@
         <link href="../css/student.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     </head>
-    <body>
-    <table class="student-table" id="myTable">
-        <thead class="table-header">
-            <td>
-                <input class="checkbox-item" type="checkbox" id="check-all"/>
-            </td>
-            <td>Name</td>
-            <td>ID</td>
-            <td>Date</td>
-            <td>Parent Name</td>
-            <td>City</td>
-            <td>Contract</td>
-            <td>Grade</td>
-            <td>Action</td>
-        </thead>
-        <tbody>
-        </tbody>
-    </table>
+    <body> 
+        <div class="content-wrapper">
+            <div class="studentMenu"> 
+                <div class="Search">
+                    <form action="/search" method="get" style="position: relative;">
+                    <i style="position: absolute; top: 15px; left: 13px; z-index: 10;" class="fas fa-search"></i>
+                    <input style="width: 100%;" type="search" id="search" name="q" placeholder="     Search here..." aria-label="Search">
+                </form>
+                </div>
+                <div class="optionMenu">
+                    <button>Newest <span><i class="fa-solid fa-caret-down"></i></span></button>
+                    <button class="addSt"><span><i class="fa-solid fa-plus"></i></span> New Student</button>
+                </div>
+            </div>
+            <table class="student-table" id="myTable">
+                <thead class="table-header">
+                    <td>
+                        <input class="checkbox-item" type="checkbox" id="check-all"/>
+                    </td>
+                    <td>Name</td>
+                    <td>ID</td>
+                    <td>Date</td>
+                    <td>Parent Name</td>
+                    <td>City</td>
+                    <td>Contract</td>
+                    <td>Grade</td>
+                    <td>Action</td>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    
     <script>
         const dataMock = [
             {id: 123456789, name: 'Name 1', avatar: '1', date: 'Match 25, 2024', parentName: 'parentName', city: 'city', grade: 'VII_A'},

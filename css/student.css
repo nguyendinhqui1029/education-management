@@ -106,3 +106,45 @@ table td {
 .checkbox-item {
     cursor: pointer;
 }
+.content-wrapper {
+
+}
+
+input[type="search"] {
+    padding: 15px;
+    font-size: 16px;
+    width: 300px; 
+    border: 1px solid #ccc; 
+    border-radius: 50px; 
+    outline: none; 
+    transition: all 0.3s ease; 
+}
+
+input[type="search"]:focus {
+    border-color: #4CAF50; 
+}
+.studentMenu {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+.studentMenu .optionMenu button {
+    cursor: pointer;
+    padding: 15px 30px;
+    border: 2px solid #4D44B5;
+    border-radius: 40px  ;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 27px;
+    color: #4D44B5;
+    background-color: #f3f4ff;
+    gap: 10px;
+}
+.studentMenu .optionMenu .addSt {
+    background-color: #4D44B5;
+    color: white;
+}
+.studentList {
+    width: 90%;
+    height: 100%;
+}

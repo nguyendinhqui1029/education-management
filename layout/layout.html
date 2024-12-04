@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Students</title>
+        <title>Mainpage</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="../css/common.css" rel="stylesheet">
@@ -15,22 +15,30 @@
         <div class="menu-container">
             <div class="logo-container">
                 <p class="icon">A</p>
-                <span>My Name</span>
+                <p class="name">Akademi</p>
+                
             </div>
             <ul class="menu">
                 <li class="menu-item active" data-item="STUDENTS">
-                    <span>Icon</span>
+                    <span><i class="fa-solid fa-user-graduate"></i></span>
                     Students</li>
 
                 <li class="menu-item" data-item="TEACHER">
-                    <span>Icon</span>
+                    <span><i class="fa-solid fa-user-tie"></i></span>
                     Teachers
                 </li>
-                <li class="menu-item" data-item="EVENTS"><span>Icon</span>
-                    Events</li>
-                <li class="menu-item" data-item="FINANCE">
-                    <span>Icon</span>
-                    Finance</li>
+                <li class="menu-item" data-item="GRADE">
+                    <span><i class="fa-solid fa-book"></i></span>
+                    Grade management</li>
+                <li class="menu-item" data-item="TIMETABLE">
+                    <span><i class="fa-solid fa-calendar-days"></i></span>
+                    Timetable</li>
+                <li class="menu-item" data-item="RESULTS">
+                    <span><i class="fa-solid fa-square-poll-vertical"></i></span>
+                    Results</li>
+                <li class="menu-item" data-item="TUITION">
+                    <span><i class="fa-solid fa-money-check"></i></span>
+                    Tuition</li>
             </ul>
         </div>
         <div class="content-container">
@@ -39,12 +47,14 @@
                 <i class="fa-solid fa-gear icon"></i>
                 <div class="avatar-container">
                     <div class="info">
-                        <span>Name</span>
-                        <small>Role</small>
+                        <span>Nabila</span>
+                        <small>Admin</small>
                     </div>
                     <div class="avatar"></div>
                 </div>
             </div>
+        
+     
             <iframe id="iframeContent" src="../student/list.html" class="content"></iframe>
         </div>
         <script>
@@ -53,8 +63,10 @@
             const menuSource = {
                 TEACHER: '../teacher/list.html',
                 STUDENTS: '../student/list.html',
-                EVENTS: '../events/list.html',
-                FINANCE: '../finance/list.html',
+                GRADE: '../grade/list.html',
+                TIMETABLE: '../timetable/list.html',
+                RESULTS: '../results/list.html',
+                TUITION: '../tuition/list.html',
             }
             menuElements.forEach(item => {
                 item.addEventListener('click', () => {
@@ -67,6 +79,7 @@
                      
                     item.classList.add('active');
                     iframeContent.src = menuSource[itemType];
+                    console.log('Button clicked: ' , item);
                 });
             });
         </script>
