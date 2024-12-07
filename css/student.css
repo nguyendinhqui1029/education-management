@@ -106,11 +106,8 @@ table td {
 .checkbox-item {
     cursor: pointer;
 }
-.content-wrapper {
 
-}
-
-input[type="search"] {
+input[type="text"] {
     padding: 15px;
     font-size: 16px;
     width: 300px; 
@@ -118,15 +115,22 @@ input[type="search"] {
     border-radius: 50px; 
     outline: none; 
     transition: all 0.3s ease; 
+    text-indent: 20px;
 }
 
-input[type="search"]:focus {
+input[type="text"]:focus {
     border-color: #4CAF50; 
 }
 .studentMenu {
     display: flex;
     justify-content: space-between;
     padding: 1rem;
+    gap: 10px;
+}
+.optionMenu {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
 }
 .studentMenu .optionMenu button {
     cursor: pointer;

@@ -12,9 +12,9 @@
             <div class="studentMenu"> 
                 <div class="Search">
                     <form action="/search" method="get" style="position: relative;">
-                    <i style="position: absolute; top: 15px; left: 13px; z-index: 10;" class="fas fa-search"></i>
-                    <input style="width: 100%;" type="search" id="search" name="q" placeholder="     Search here..." aria-label="Search">
-                </form>
+                        <i style="position: absolute; top: 15px; left: 13px; z-index: 10;" class="fas fa-search"></i>
+                        <input style="width: 100%;" type="text" id="searchInput" placeholder="Search here..." aria-label="Search">
+                    </form>
                 </div>
                 <div class="optionMenu">
                     <button>Newest <span><i class="fa-solid fa-caret-down"></i></span></button>
@@ -51,9 +51,6 @@
         var checkboxAllElement = document.getElementById("check-all");
         var tbody = table.getElementsByTagName("tbody")[0];
         var selectedItem = [];
-        function checkBoxClick(event) {
-            console.log(event)
-        }
 
         checkboxAllElement.addEventListener("change", function() {
             if (checkboxAllElement.checked) {
@@ -73,10 +70,18 @@
             }
         });
 
+        searchInput.addEventListener("input", function(value) {
+            if(!value.target.value) {
+                generateTable(dataMock);
+                return;
+            }
+            const data = dataMock.filter(item=> item.name.toLocaleLowerCase().includes(value.target.value.toLocaleLowerCase()))
+            generateTable(data);
+        });
         
-        function generateTable() {
+        function generateTable(data) {
             tbody.innerHTML = '';
-            dataMock.forEach(item=>{
+            data.forEach(item=>{
             var newRow = tbody.insertRow(); 
             var cell1 = newRow.insertCell(0); // Ô thứ 1
             var cell2 = newRow.insertCell(1); // Ô thứ 2
@@ -132,17 +137,16 @@
             });
         }
         
-        generateTable();
+        generateTable(dataMock);
 
         function handleDeleteAll() {
-            dataMock = dataMock.filter(item=>!selectedItem.includes(item.id));
-            console.log(selectedItem)
-            generateTable();
+            const newData = dataMock.filter(item=>!selectedItem.includes(item.id));
+            generateTable(newData);
         }
 
         function handleDelete(id) {
-            dataMock = dataMock.filter(item=>item.id !== id);
-            generateTable();
+            const newData = dataMock.filter(item=>item.id !== id);
+            generateTable(newData);
         }
     </script>
     </body>
