@@ -18,7 +18,7 @@
                 </div>
                 <div class="optionMenu">
                     <button>Newest <span><i class="fa-solid fa-caret-down"></i></span></button>
-                    <button class="addSt" id="openModalBtn"><span><i class="fa-solid fa-plus"></i></span> New Student</button>
+                    <button class="addSt"><span><i class="fa-solid fa-plus"></i></span> New Student</button>
                     <button onclick="handleDeleteAll()" class="addSt"><span><i class="fa-solid fa-trash"></i></span> Delete Select Student</button>
                 </div>
             </div>
@@ -40,73 +40,13 @@
                 </tbody>
             </table>
         </div>
-
-        <div id="studentFormModel" class="modal">
-            <div class="modal-content">
-              <div class="header-content">
-                <span class="add-student-header">Add student</span>
-                <span class="close" onclick="closeModel()">&times;</span>
-              </div>
-              <div class="form-wrapper">
-                <div class="field-wrapper">
-                    <label class="label">First name *</label>
-                    <input class="my-input" type="text" onchange="valueChange(event, 'firstName')"/>
-                </div>
-                <div class="field-wrapper">
-                    <label class="label">Last name *</label>
-                    <input class="my-input" type="text" onchange="valueChange(event, 'lastName')"/>
-                </div>
-                <div class="field-wrapper">
-                    <label class="label">Date & Place of birth *</label>
-                    <div class="date-place">
-                        <input class="my-input" type="date" onchange="valueChange(event, 'date')"/>
-                        <input class="my-input" type="text" onchange="valueChange(event, 'city')"/>
-                    </div>
-                </div>
-                <div class="field-wrapper">
-                    <label class="label">Parent name *</label>
-                    <input class="my-input" type="text" onchange="valueChange(event, 'parentName')"/>
-                </div>
-                <div class="field-wrapper">
-                    <label class="label">Email *</label>
-                    <input class="my-input" type="email" onchange="valueChange(event, 'email')"/>
-                </div>
-                <div class="field-wrapper">
-                    <label class="label">Phone *</label>
-                    <input class="my-input" type="phone" onchange="valueChange(event, 'phone')"/>
-                </div>
-                <div class="field-wrapper">
-                    <label class="label">Grade *</label>
-                    <select name="grade" onchange="valueChange(event, 'grade')">
-                        <option value="VII_A">VII A</option>
-                        <option value="VII_B">VII B</option>
-                        <option value="VII_C">VII C</option>
-                    </select>
-                </div>
-              </div>
-              <div class="actions">
-                <button style="min-width: 100px;" onClick="saveStudent()" >Save</button>
-              </div>
-            </div>
-        </div>
+    
     <script>
-        let dataMock = [];
-        let studentInfo = {
-            id: 0, 
-            firstName: '', 
-            lastName: '',
-            avatar: '',
-            phone:'', 
-            email: '', 
-            date: '', 
-            parentName: '', 
-            city: '', 
-            grade: 'VII_A'
-        };
-
-        if(localStorage.getItem('students')) {
-            dataMock = JSON.parse(localStorage.getItem('students')); 
-        }
+        let dataMock = [
+            {id: 123456789, name: 'Name 1', avatar: '1',phone:'1232323', email:"a@gmail.com", date: 'Match 25, 2024', parentName: 'parentName', city: 'city', grade: 'VII_A'},
+            {id: 123456790, name: 'Name 2', avatar: '2',phone:'1232323', email:"a@gmail.com", date: 'Match 25, 2024', parentName: 'parentName', city: 'city', grade: 'VII_B'},
+            {id: 123456791, name: 'Name 3', avatar: '3',phone:'1232323', email:"a@gmail.com", date: 'Match 25, 2024', parentName: 'parentName', city: 'city', grade: 'VII_C'}
+        ];
         var table = document.getElementById("myTable");
         var checkboxAllElement = document.getElementById("check-all");
         var tbody = table.getElementsByTagName("tbody")[0];
@@ -173,7 +113,7 @@
                 checkboxAllElement.checked = false;
             });
             
-            cell2.innerHTML = `<div class="avatar"></div><span>${item.firstName} ${item.lastName}</span>`;
+            cell2.innerHTML = `<div class="avatar"></div><span>${item.name}</span>`;
             cell2.classList='column-name';
 
             cell3.innerHTML = `#${item.id}`;
@@ -200,58 +140,13 @@
         generateTable(dataMock);
 
         function handleDeleteAll() {
-            dataMock = dataMock.filter(item=>!selectedItem.includes(item.id));
-            localStorage.setItem('students', JSON.stringify(dataMock));
-            generateTable(dataMock);
+            const newData = dataMock.filter(item=>!selectedItem.includes(item.id));
+            generateTable(newData);
         }
 
         function handleDelete(id) {
-            dataMock = dataMock.filter(item=>item.id !== id);
-            generateTable(dataMock);
-            localStorage.setItem('students', JSON.stringify(dataMock));
-        }
-
-        const modal = document.getElementById("studentFormModel");
-        const openModalBtn = document.getElementById('openModalBtn');
-        openModalBtn.onclick = function() {
-            modal.style.display = "flex";
-        }
-
-        function closeModel() {
-            modal.style.display = "none";
-        }
-
-        function saveStudent() {
-            if(!studentInfo.city.trim() || !studentInfo.date.trim() || !studentInfo.email.trim() || !studentInfo.grade.trim()
-            || !studentInfo.parentName.trim() || !studentInfo.phone.trim() || !studentInfo.firstName.trim() || !studentInfo.lastName.trim()
-            ) {
-                return;
-            }
-            dataMock.push({...studentInfo, id: new Date().getTime()});
-            localStorage.setItem('students', JSON.stringify(dataMock));
-            generateTable(dataMock);
-            studentInfo = {
-                id: 0, 
-                firstName: '', 
-                lastName: '',
-                avatar: '',
-                phone:'', 
-                email: '', 
-                date: '', 
-                parentName: '', 
-                city: '', 
-                grade: 'VII_A'
-            }
-            
-            const allInput = document.querySelectorAll('.my-input');
-            allInput.forEach(item=>{
-                item.value = '';
-            });
-            modal.style.display = "none";
-        }
-
-        function valueChange(event, fieldName) {
-            studentInfo[fieldName] = event.target.value;
+            const newData = dataMock.filter(item=>item.id !== id);
+            generateTable(newData);
         }
     </script>
     </body>

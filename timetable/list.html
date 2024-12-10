@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thời Khóa Biểu</title>
+    <link rel="stylesheet" href="/css/timetable.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Thời Khóa Biểu</h1>
+        <table id="timetable">
+            <thead>
+                <tr>
+                    <th>Thời gian</th>
+                    <th>Thứ 2</th>
+                    <th>Thứ 3</th>
+                    <th>Thứ 4</th>
+                    <th>Thứ 5</th>
+                    <th>Thứ 6</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>8:00</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>9:00</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>10:00</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>11:00</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>12:00</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>13:00</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>14:00</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>15:00</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>16:00</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Thêm Môn Học</h2>
+        <form id="add-subject-form">
+            <label for="time">Thời gian:</label>
+            <input type="text" id="time" placeholder="Ví dụ: 8:00">
+            <label for="day">Ngày:</label>
+            <select id="day" >
+                <option value="0">Thứ 2</option>
+                <option value="1">Thứ 3</option>
+                <option value="2">Thứ 4</option>
+                <option value="3">Thứ 5</option>
+                <option value="4">Thứ 6</option>
+            </select>
+            <label for="subject">Môn học:</label>
+            <input type="text" id="subject" placeholder="Nhập tên môn học">
+            <label for="teacher">Giáo viên:</label>
+            <input type="text" id="teacher" placeholder="Nhập tên giáo viên">
+            <button type="submit">Thêm</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('add-subject-form').addEventListener('submit', function() {
+            event.preventDefault ();
+            const time = document.getElementById('time').value;
+            const day = document.getElementById('day').value;
+            const subject = document.getElementById('subject').value;
+
+            const rows = document.querySelectorAll('#timetable tbody tr');
+            let rowToUpdate;
+
+            rows.forEach(row => {
+                const timeCell = row.cells[0].textContent;
+                if (timeCell === time) {
+                    rowToUpdate = row;
+                }
+            });
+            if (rowToUpdate) {
+                rowToUpdate.cells[parseInt(day) + 1].textContent = subject; // +1 vì cột đầu tiên là thời gian
+            } else {
+                alert('Không tìm thấy thời gian trong thời khóa biểu.');
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Đăng Kí</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="./css/login.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="bgLogin">
+            <img src="./Image/backgroundLogin.jpg" alt="Background login">
+        </div>
+        <div class="login-container">
+            <div class="login-content">
+                <div class="titleForm">
+                    <p>Đăng Kí</p>
+                </div>
+                <div class="formLogin">
+                    <input id="registerUsername" type="text" placeholder="Tài khoản....">
+                    <input id="registerPassword" type="password" placeholder="Mật khẩu....">
+                    <input id="confirmPassword" type="password" placeholder="Nhập lại mật khẩu....">
+                    <button id="registerButton" type="submit">Đăng Kí</button>
+                    <p id="registerMessage"></p>
+                </div>
+            </div>
+        </div>
+        <script>
+            document.getElementById('registerButton').addEventListener('click', function()
+            {
+                event.preventDefault(); //này dùng để ngăn chặn hành động mặc định của button
+
+                const username = document.getElementById('registerUsername').value;
+                const password = document.getElementById('registerPassword').value;
+                const confirmPassword = document.getElementById('confirmPassword').value;
+                const messageElement = document.getElementById('registerMessage');
+
+                if (password !== confirmPassword) {
+                    messageElement.innerText = 'Mật khẩu không khớp';
+                    messageElement.style.color = 'red';
+                    return;
+                }
+                
+                const users = JSON.parse(localStorage.getItem('users')) || [];
+                const userExits = users.some(user => user.username === username);
+                if (userExits) {
+                    messageElement.innerText = 'Tài khoản đã tồn tại';
+                    messageElement.style.color = 'red';
+                    return;
+                }
+                users.push({username, password});
+                localStorage.setItem('users',JSON.stringify(users));
+                messageElement.innerText = 'Đăng kí thành công';
+                messageElement.style.color = 'green';
+
+                setTimeout(() => {
+                window.location.href = "./login.html";
+                }, 1500);
+            });
+        </script>
+    </body>
+</html>

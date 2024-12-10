@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Đăng Nhập</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="./css/login.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="bgLogin">
+            <img src="./Image/backgroundLogin.jpg" alt="Background login">
+        </div>
+        <div class="login-container">
+            <div class="login-content">
+                <div class="titleForm">
+                    <p>Đăng Nhập</p>
+                </div>
+                <div class="formLogin">
+                    <input id="username" type="text" placeholder="Tài khoản....">
+                    <input id="password" type="password" placeholder="Mật khẩu....">
+                    <button id="loginButton" type="submit">Đăng Nhập</button>
+                    <p id="message"></p>
+                    <p>Bạn chưa có tài khoản ?</p>
+                    <p><a href="./signin.html">Đăng kí tài khoản</a></p>
+                </div>
+            </div>
+        </div>
+        <script>
+            document.getElementById('loginButton').addEventListener('click', function(event) {
+            event.preventDefault();
+            
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const messageElement = document.getElementById('message');
+
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            const user = users.find(user => user.username === username && user.password === password);
+            if (user) {
+                messageElement.innerText = 'Đăng nhập thành công!';
+                messageElement.style.color = 'green';
+                setTimeout (() => {
+                    window.location.href = './layout/layout.html';
+                }, 1000);
+            } else {
+            messageElement.innerText = 'Tài khoản hoặc mật khẩu không đúng!';
+            messageElement.style.color = 'red';
+            }
+            });
+        </script>
+    </body>
+</html>

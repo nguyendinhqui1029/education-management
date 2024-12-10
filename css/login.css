@@ -1,4 +1,81 @@
-.container {
-    width: 100vh;
-    height: 100vw;
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box ;
+}
+.bgLogin {
+    overflow: hidden;
+    height: 100vh;
+}
+.bgLogin img {
+    width: 105vw;
+    height: 100vh;
+}
+.login-container {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #3630325b;
+    z-index: 2;
+}
+
+.login-content {
+    width: 365px;
+    height: 336px;
+    position: relative;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 36px 40px;
+    border-radius: 8px;
+    box-shadow:10px 15px 20px 0px rgba(243, 241, 241, 0.5);
+}
+.titleForm {
+    text-align: center;
+}
+
+div.titleForm p {
+    font-size: 25px;
+    opacity: 1;
+    color: rgb(46, 43, 43);
+    font-weight: bold;
+}
+div.formLogin {
+    margin-top: 30px;
+}
+.formLogin p{
+    margin-top: 10px;
+    text-align: center;
+    color: rgb(99, 91, 91);
+}
+.formLogin p a{
+    text-decoration: none;
+    color: rgb(47, 47, 206);
+}
+
+.formLogin input {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #d1d1d1;
+    padding: 10px 10px;
+    outline: none;
+    margin-bottom: 10px;
+}
+input:focus {
+    border: 2px solid black;
+
+}
+
+div.formLogin button {
+    margin-top: 16px;
+    width: 100%;
+    background-color: rgb(140, 206, 181);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    cursor: pointer;
 }

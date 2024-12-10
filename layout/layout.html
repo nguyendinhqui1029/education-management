@@ -43,21 +43,26 @@
         </div>
         <div class="content-container">
             <div class="menu-header">
-                <i class="fa-regular fa-bell icon" ></i>
-                <i class="fa-solid fa-gear icon"></i>
-                <div class="avatar-container">
-                    <div class="info">
-                        <span>Nabila</span>
-                        <small>Admin</small>
+                <div class="leftHeading">
+                    <p>Students</p>
+                </div>
+                <div class="rightHeading">
+                    <i class="fa-regular fa-bell icon" ></i>
+                    <i class="fa-solid fa-gear icon"></i>
+                    <div class="avatar-container">
+                        <div class="info">
+                            <span>Nabila</span>
+                            <small>Admin</small>
+                        </div>
+                        <div class="avatar"></div>
                     </div>
-                    <div class="avatar"></div>
                 </div>
             </div>
-        
-     
             <iframe id="iframeContent" src="../student/list.html" class="content"></iframe>
+            
         </div>
         <script>
+            const title = document.getElementsByClassName('leftHeading');
             const menuElements = document.querySelectorAll('.menu-item');
             const iframeContent = document.getElementById('iframeContent');
             const menuSource = {
