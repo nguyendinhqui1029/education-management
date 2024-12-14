@@ -10,14 +10,11 @@
     <body> 
         <div class="content-wrapper">
             <div class="studentMenu"> 
-                <div class="Search">
-                    <form action="/search" method="get" style="position: relative;">
-                        <i style="position: absolute; top: 15px; left: 13px; z-index: 10;" class="fas fa-search"></i>
-                        <input style="width: 100%;" type="text" id="searchInput" placeholder="Search here..." aria-label="Search">
-                    </form>
+                <div class="Search"  style="position: relative;">
+                    <i style="position: absolute; top: 15px; left: 13px; z-index: 10;" class="fas fa-search"></i>
+                    <input style="width: 100%;" type="text" id="searchInput" placeholder="Search here..." aria-label="Search">
                 </div>
                 <div class="optionMenu">
-                    <button>Newest <span><i class="fa-solid fa-caret-down"></i></span></button>
                     <button class="addSt" id="openModalBtn"><span><i class="fa-solid fa-plus"></i></span> New Student</button>
                     <button onclick="handleDeleteAll()" class="addSt"><span><i class="fa-solid fa-trash"></i></span> Delete Select Student</button>
                 </div>
@@ -32,7 +29,7 @@
                     <td>Date</td>
                     <td>Parent Name</td>
                     <td>City</td>
-                    <td>Contract</td>
+                    <td>Contact</td>
                     <td>Grade</td>
                     <td>Action</td>
                 </thead>
@@ -50,37 +47,37 @@
               <div class="form-wrapper">
                 <div class="field-wrapper">
                     <label class="label">First name *</label>
-                    <input class="my-input" type="text" onchange="valueChange(event, 'firstName')"/>
+                    <input class="my-input" placeholder="Enter first name" type="text" onchange="valueChange(event, 'firstName')"/>
                 </div>
                 <div class="field-wrapper">
                     <label class="label">Last name *</label>
-                    <input class="my-input" type="text" onchange="valueChange(event, 'lastName')"/>
+                    <input class="my-input" placeholder="Enter last name" type="text" onchange="valueChange(event, 'lastName')"/>
                 </div>
                 <div class="field-wrapper">
                     <label class="label">Date & Place of birth *</label>
                     <div class="date-place">
-                        <input class="my-input" type="date" onchange="valueChange(event, 'date')"/>
-                        <input class="my-input" type="text" onchange="valueChange(event, 'city')"/>
+                        <input class="my-input" placeholder="Enter date of birth" type="date" onchange="valueChange(event, 'date')"/>
+                        <input class="my-input" placeholder="Enter place of birth" type="text" onchange="valueChange(event, 'city')"/>
                     </div>
                 </div>
                 <div class="field-wrapper">
                     <label class="label">Parent name *</label>
-                    <input class="my-input" type="text" onchange="valueChange(event, 'parentName')"/>
+                    <input class="my-input" placeholder="Enter parent name" type="text" onchange="valueChange(event, 'parentName')"/>
                 </div>
                 <div class="field-wrapper">
                     <label class="label">Email *</label>
-                    <input class="my-input" type="email" onchange="valueChange(event, 'email')"/>
+                    <input class="my-input" placeholder="Enter email" type="email" onchange="valueChange(event, 'email')"/>
                 </div>
                 <div class="field-wrapper">
                     <label class="label">Phone *</label>
-                    <input class="my-input" type="phone" onchange="valueChange(event, 'phone')"/>
+                    <input class="my-input" placeholder="Enter phone number" type="phone" onchange="valueChange(event, 'phone')"/>
                 </div>
                 <div class="field-wrapper">
                     <label class="label">Grade *</label>
                     <select name="grade" onchange="valueChange(event, 'grade')">
-                        <option value="VII_A">VII A</option>
-                        <option value="VII_B">VII B</option>
-                        <option value="VII_C">VII C</option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
                     </select>
                 </div>
               </div>
@@ -101,7 +98,7 @@
             date: '', 
             parentName: '', 
             city: '', 
-            grade: 'VII_A'
+            grade: 'A'
         };
 
         if(localStorage.getItem('students')) {
@@ -135,7 +132,7 @@
                 generateTable(dataMock);
                 return;
             }
-            const data = dataMock.filter(item=> item.name.toLocaleLowerCase().includes(value.target.value.toLocaleLowerCase()))
+            const data = dataMock.filter(item=> `${item.firstName} ${item.lastName}`.toLocaleLowerCase().includes(value.target.value.toLocaleLowerCase()))
             generateTable(data);
         });
         
@@ -190,7 +187,7 @@
 
             cell7.innerHTML = `<div class="column-contact"><a class="tag-link" href="tel:${item.phone}"><i class="phone-icon fa-solid fa-phone icon" data-id="${item.id}"></i></a><a class="tag-link" href="mailto:${item.email}?subject="><i data-id="${item.id}" class="email-icon fa-solid fa-envelope icon"></i></a></div>`;
 
-            cell8.innerHTML = `<div class="${item.grade === 'VII_A' ? 'grade-a' : item.grade === 'VII_B' ? 'grade-b': 'grade-c'}">${item.grade.replace('_', ' ')}</div>`;
+            cell8.innerHTML = `<div class="${item.grade === 'A' ? 'grade-a' : item.grade === 'B' ? 'grade-b': 'grade-c'} grade">${item.grade}</div>`;
 
             cell9.innerHTML = `<i onclick="handleDelete(${item.id})" style="color: red;" class="menu-icon fa-solid fa-trash"></i>`;
             cell9.classList= 'action-content'
@@ -240,7 +237,7 @@
                 date: '', 
                 parentName: '', 
                 city: '', 
-                grade: 'VII_A'
+                grade: 'A'
             }
             
             const allInput = document.querySelectorAll('.my-input');

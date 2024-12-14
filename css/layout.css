@@ -41,10 +41,20 @@
     background: #ffffff;
     border-radius: 50%;
     padding: 0.5rem;
+    cursor: pointer;
+}
+.leftHeading {
+    color: #303972;
+    font-weight: bold;
+}
+.rightHeading {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 .menu-header {
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
     align-items: center;
     padding: 1rem;
     gap: 2rem;

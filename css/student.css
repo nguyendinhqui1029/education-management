@@ -15,8 +15,13 @@ body {
     border-bottom: 1px solid #ccc;
     height: 20px;
 }
+table thead {
+    font-weight: bold;
+}
+
 table td {
     padding: 14px;
+    text-align: center;
 }
 
 .active-checkbox {
@@ -24,13 +29,14 @@ table td {
 }
 
 .action-content {
-    text-align: right;
+    text-align: center;
     width: 25px;
     cursor: pointer;
 }
 
 .column-name {
     display: flex;
+    text-align: center;
     gap: 14px;
     align-items: center;
 }
@@ -43,23 +49,28 @@ table td {
 }
 
 .column-id {
+    text-align: center;
     color: #4e44b5;
     font-weight: bold;
 }
 
 .column-date {
+    text-align: center;
     color: #aca5b9;
 }
 
 .column-parent-name {
     color: #3e457b;
+    text-align: center;
 }
 
 .column-city {
+    text-align: center;
     color: #303972;
 }
 
 .column-contact {
+    justify-content: center;
     display: flex;
     padding: 0;
     gap: 8px;
@@ -77,7 +88,12 @@ table td {
     background: #edecf8;
     cursor: pointer;
 }
-
+.grade {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-self: center;
+}
 .grade-a {
     background: #fb7d5b;
     color: #ffffff;
@@ -127,6 +143,9 @@ select {
     transition: all 0.3s ease; 
 }
 
+.Search {
+    width: fit-content;
+}
 input:not([type="button"]):focus {
     border-color: #4CAF50; 
 }
@@ -135,6 +154,7 @@ input:not([type="button"]):focus {
     justify-content: space-between;
     padding: 1rem;
     gap: 10px;
+    max-width: calc(100vw - 90px);
 }
 .optionMenu {
     display: flex;

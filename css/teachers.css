@@ -16,7 +16,10 @@
     padding: 30px 15px ;
     position: relative;
 }
-
+.tag-link {
+    color: #4e44b5;
+    text-decoration: none;
+}
 .avatar {
     width: 100px;
     height: 100px;
