@@ -27,18 +27,12 @@
                     <span><i class="fa-solid fa-user-tie"></i></span>
                     Teachers
                 </li>
-                <li class="menu-item" data-item="GRADE">
-                    <span><i class="fa-solid fa-book"></i></span>
-                    Grade management</li>
                 <li class="menu-item" data-item="TIMETABLE">
                     <span><i class="fa-solid fa-calendar-days"></i></span>
                     Timetable</li>
                 <li class="menu-item" data-item="RESULTS">
                     <span><i class="fa-solid fa-square-poll-vertical"></i></span>
                     Results</li>
-                <li class="menu-item" data-item="TUITION">
-                    <span><i class="fa-solid fa-money-check"></i></span>
-                    Tuition</li>
             </ul>
         </div>
         <div class="content-container">
@@ -68,10 +62,8 @@
             const menuSource = {
                 TEACHER: '../teacher/list.html',
                 STUDENTS: '../student/list.html',
-                GRADE: '../grade/list.html',
                 TIMETABLE: '../timetable/list.html',
                 RESULTS: '../results/list.html',
-                TUITION: '../tuition/list.html',
             }
             menuElements.forEach(item => {
                 item.addEventListener('click', () => {
